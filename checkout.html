@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Checkout Page</title>
+  <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Checkout Form -->
+    <form id="checkoutForm" action="admin/place_order.php" method="POST">
+      <h2>Contact</h2>
+      <input type="email" name="email" placeholder="Email or mobile phone number" required>
+
+      <h2>Delivery</h2>
+      <input type="text" name="country" value="India" readonly>
+      <input type="text" name="first_name" placeholder="First name" required>
+      <input type="text" name="last_name" placeholder="Last name" required>
+      <input type="text" name="address" placeholder="Address" required>
+      <input type="text" name="city" placeholder="City" required>
+      <input type="text" name="state" value="Maharashtra" readonly>
+      <input type="text" name="postal_code" placeholder="PIN code" required>
+      <input type="text" name="phone" placeholder="Phone" required>
+
+      <h2>Payment</h2>
+      <!-- ✅ Updated payment_method select -->
+      <select name="payment_method" id="payment_method" required>
+        <option value="">--Select Payment Method--</option>
+        <option value="GooglePay">Google Pay</option>
+        <option value="Paytm">Paytm</option>
+        <option value="PhonePe">PhonePe</option>
+        <option value="Cards">Cards</option>
+        <option value="NetBanking">NetBanking</option>
+        <option value="COD">Cash on Delivery</option>
+      </select>
+
+      <!-- ✅ Dynamic payment details appear here based on selection -->
+      <div id="paymentDetails"></div>
+
+      <button type="submit" class="complete-order">Complete Order</button>
+    </form>
+
+    <!-- Order Summary -->
+    <div class="summary-section">
+      <h3>Order Summary</h3>
+      <div id="cart-items"></div>
+      <div>
+        <strong>Total: </strong>
+        <span id="subtotal">₹0.00</span>
+      </div>
+    </div>
+  </div>
+
+    <script src="checkout.js"></script>
+</body>
+</html>

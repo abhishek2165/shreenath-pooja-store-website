@@ -1,0 +1,147 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  /* Subtle gradient background */
+  background: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 50%, #F48FB1 100%);
+  /* Use min-height instead of fixed height so it can expand if needed */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInBody 1s ease-in-out;
+}
+
+/* Fix for very short screens */
+@media (max-height: 700px) {
+  body {
+    align-items: flex-start; /* Put content near the top if screen is short */
+    padding-top: 20px;
+  }
+}
+
+/* Fade-in Animation */
+@keyframes fadeInBody {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Sign-Up Form Styles */
+.signup-container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeInSignup 1s ease-in-out;
+
+  /* Prevent overflow on smaller screens */
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes fadeInSignup {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #C62828;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #C62828;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.auth-btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #FBC02D;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.auth-btn:hover {
+  background-color: #C62828;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(108, 92, 231, 0.7), 0 0 30px rgba(108, 92, 231, 0.5);
+}
+
+/* Modal overlay */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal content box */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  width: 350px;
+  max-width: 90%;
+}
+
+@keyframes fadeInModal {
+  0% { opacity: 0; transform: translateY(-50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content h2 {
+  font-size: 22px;
+  color: #ff9800;
+}
+
+.modal-content p {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Responsive styling */
+@media (max-width: 767px) {
+  .row {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .col-md-6 {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+
+  .col-md-12 {
+      text-align: center;
+  }
+}

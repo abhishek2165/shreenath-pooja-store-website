@@ -1,0 +1,146 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  /* Gradient background to match signup style */
+  background: linear-gradient(135deg, #FCE4EC 0%, #F8BBD0 50%, #F48FB1 100%);
+  min-height: 100vh;  /* let content expand if needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInBody 1s ease-in-out;
+}
+
+/* Fix for very short screens */
+@media (max-height: 700px) {
+  body {
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+}
+
+/* Fade-in Animation */
+@keyframes fadeInBody {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Login Form Styles */
+.login-container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeInLogin 1s ease-in-out;
+
+  /* Prevent overflow on smaller screens if needed */
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes fadeInLogin {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #C62828;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #F57C00;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.auth-btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #C62828;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.auth-btn:hover {
+  background-color: #F57C00;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(108, 92, 231, 0.7), 0 0 30px rgba(108, 92, 231, 0.5);
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  animation: fadeInModal 0.5s ease-in-out;
+}
+
+@keyframes fadeInModal {
+  0% { opacity: 0; transform: translateY(-50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content h2 {
+  color: #4b3f72;
+  margin-bottom: 15px;
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Responsive styling */
+@media (max-width: 767px) {
+  .navbar-toggler {
+      background-color: #fff;
+  }
+
+  .row {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .col-md-6 {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+
+  .col-md-12 {
+      text-align: center;
+  }
+}

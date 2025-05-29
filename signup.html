@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign-Up</title>
+  <link rel="stylesheet" href="signup.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome Icons (for labels and buttons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-37sVhscC6R2YFChb4GHSAl4Q7ycHVWU7jlrLBBFSWGzBwJNm0hExOJ+Oe4gwAtCJwKS3PSCB8Hf9ZOOTj6W9gA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body>
+  <form id="signupForm">
+    <div class="signup-container">
+      <h1 class="animate-fade">Create an Account</h1>
+      
+      <!-- First Name Field -->
+      <div class="form-group">
+        <label for="firstName">
+          <i class="fas fa-user" style="margin-right:5px;"></i> First Name
+        </label>
+        <input type="text" id="firstName" placeholder="Enter your first name" required aria-describedby="firstNameError" />
+        <small id="firstNameError" class="text-danger"></small>
+      </div>
+
+      <!-- Last Name Field -->
+      <div class="form-group">
+        <label for="lastName">
+          <i class="fas fa-user" style="margin-right:5px;"></i> Last Name
+        </label>
+        <input type="text" id="lastName" placeholder="Enter your last name" required aria-describedby="lastNameError" />
+        <small id="lastNameError" class="text-danger"></small>
+      </div>
+      
+      <!-- Mobile Number Field -->
+      <div class="form-group">
+        <label for="mobile">
+          <i class="fas fa-phone" style="margin-right:5px;"></i> Mobile Number
+        </label>
+        <input type="tel" id="mobile" placeholder="Enter your mobile number" required aria-describedby="mobileError" />
+        <small id="mobileError" class="text-danger"></small>
+      </div>
+      
+      <!-- Email Field -->
+      <div class="form-group">
+        <label for="email">
+          <i class="fas fa-envelope" style="margin-right:5px;"></i> Email
+        </label>
+        <input type="email" id="email" placeholder="Enter your email" required aria-describedby="emailError" />
+        <small id="emailError" class="text-danger"></small>
+      </div>
+
+      <!-- Password Field with Toggle and Strength Meter -->
+      <div class="form-group">
+        <label for="password">
+          <i class="fas fa-lock" style="margin-right:5px;"></i> Password
+        </label>
+        <div style="display: flex; align-items: center;">
+          <input type="password" id="password" placeholder="Enter your password" required style="flex: 1;" aria-describedby="passwordError" />
+          <button type="button" onclick="togglePassword()" style="margin-left: 5px;">👁️</button>
+        </div>
+        <small id="passwordError" class="text-danger"></small>
+        <div id="passwordStrength" style="margin-top: 5px;"></div>
+      </div>
+
+      <!-- Confirm Password Field -->
+      <div class="form-group">
+        <label for="confirmPassword">
+          <i class="fas fa-lock" style="margin-right:5px;"></i> Confirm Password
+        </label>
+        <input type="password" id="confirmPassword" placeholder="Re-enter your password" required aria-describedby="confirmPasswordError" />
+        <small id="confirmPasswordError" class="text-danger"></small>
+      </div>
+
+      <!-- Toggle for Password Tips -->
+      <p style="text-align:left; margin-top:5px;">
+        <a href="#" id="toggleTips" style="font-size: 14px; color: #C62828; text-decoration: underline; cursor: pointer;">
+          Show password tips
+        </a>
+      </p>
+      <div id="passwordTips" style="display:none; margin-top:5px; color: #333; font-size: 14px;">
+        <ul style="padding-left:20px;">
+          <li>At least 8 characters</li>
+          <li>At least one uppercase letter (A-Z)</li>
+          <li>At least one digit (0-9)</li>
+          <li>At least one special character (!, @, #, $, etc.)</li>
+        </ul>
+      </div>
+
+      <!-- Terms & Conditions Checkbox -->
+      <div class="form-group">
+        <input type="checkbox" id="acceptTerms" />
+        <label for="acceptTerms" style="display: inline;">
+          I accept the <a href="#">Terms & Conditions</a>
+        </label>
+      </div>
+      
+      <!-- Social Authentication Options -->
+      <div class="form-group" style="margin: 10px 0;">
+        <button type="button" class="auth-btn" onclick="socialLogin('google')" style="background-color: #DB4437;">
+          <i class="fab fa-google" style="margin-right:5px;"></i> Sign Up with Google
+        </button>
+        <button type="button" class="auth-btn" onclick="socialLogin('facebook')" style="background-color: #4267B2; margin-top: 5px;">
+          <i class="fab fa-facebook-f" style="margin-right:5px;"></i> Sign Up with Facebook
+        </button>
+      </div>
+      
+      <!-- Loading Spinner -->
+      <div id="loadingSpinner" style="display: none; text-align: center; margin: 10px 0;">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      
+      <button type="submit" class="auth-btn">Sign Up</button>
+
+      <!-- Login Link -->
+      <p style="margin-top: 15px;">Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+  </form>
+
+  <!-- Success Modal (Bootstrap Modal) -->
+  <div id="successModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sign-Up Successful!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Welcome! Redirecting to Login page...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Real-time validation for First Name
+    const firstNameInput = document.getElementById("firstName");
+    firstNameInput.addEventListener("input", function() {
+      const firstNameError = document.getElementById("firstNameError");
+      firstNameError.textContent = firstNameInput.value.trim() === "" ? "First name cannot be empty." : "";
+    });
+    
+    // Real-time validation for Last Name
+    const lastNameInput = document.getElementById("lastName");
+    lastNameInput.addEventListener("input", function() {
+      const lastNameError = document.getElementById("lastNameError");
+      lastNameError.textContent = lastNameInput.value.trim() === "" ? "Last name cannot be empty." : "";
+    });
+
+    // Real-time validation for Mobile Number
+    const mobileInput = document.getElementById("mobile");
+    mobileInput.addEventListener("input", function() {
+      const mobileError = document.getElementById("mobileError");
+      const mobileValue = mobileInput.value.trim();
+      const mobileRegex = /^[0-9]{10,15}$/;
+      mobileError.textContent = mobileRegex.test(mobileValue) ? "" : "Enter a valid mobile number (10-15 digits).";
+    });
+    
+    // Real-time validation for Email
+    const emailInput = document.getElementById("email");
+    emailInput.addEventListener("input", function() {
+      const emailError = document.getElementById("emailError");
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      emailError.textContent = emailRegex.test(emailInput.value.trim()) ? "" : "Enter a valid email address.";
+    });
+    
+    // Password strength meter and validation
+    const passwordInput = document.getElementById("password");
+    passwordInput.addEventListener("input", function() {
+      const passwordError = document.getElementById("passwordError");
+      const passwordStrength = document.getElementById("passwordStrength");
+      const value = passwordInput.value;
+      let strength = 0;
+      
+      if (value.length >= 8) strength++;
+      if (/[A-Z]/.test(value)) strength++;
+      if (/[0-9]/.test(value)) strength++;
+      if (/[^A-Za-z0-9]/.test(value)) strength++;
+      
+      if (strength <= 1) {
+        passwordStrength.textContent = "Weak password";
+        passwordStrength.style.color = "red";
+      } else if (strength === 2) {
+        passwordStrength.textContent = "Moderate password";
+        passwordStrength.style.color = "orange";
+      } else if (strength >= 3) {
+        passwordStrength.textContent = "Strong password";
+        passwordStrength.style.color = "green";
+      }
+      
+      passwordError.textContent = value.trim() === "" ? "Password cannot be empty." : "";
+    });
+    
+    // Confirm Password Validation
+    const confirmPasswordInput = document.getElementById("confirmPassword");
+    confirmPasswordInput.addEventListener("input", function() {
+      const confirmPasswordError = document.getElementById("confirmPasswordError");
+      confirmPasswordError.textContent = confirmPasswordInput.value !== passwordInput.value ? "Passwords do not match." : "";
+    });
+
+    // Show/Hide Password Tips
+    const toggleTipsLink = document.getElementById("toggleTips");
+    const passwordTips = document.getElementById("passwordTips");
+    toggleTipsLink.addEventListener("click", function(e) {
+      e.preventDefault();
+      if (passwordTips.style.display === "none") {
+        passwordTips.style.display = "block";
+        this.textContent = "Hide password tips";
+      } else {
+        passwordTips.style.display = "none";
+        this.textContent = "Show password tips";
+      }
+    });
+
+    // Form Submission Handler
+    document.getElementById("signupForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent form default submission
+      
+      // Clear any previous inline errors
+      document.getElementById("firstNameError").textContent = "";
+      document.getElementById("lastNameError").textContent = "";
+      document.getElementById("mobileError").textContent = "";
+      document.getElementById("emailError").textContent = "";
+      document.getElementById("passwordError").textContent = "";
+      document.getElementById("confirmPasswordError").textContent = "";
+      
+      let firstName = firstNameInput.value.trim();
+      let lastName = lastNameInput.value.trim();
+      let mobile = mobileInput.value.trim();
+      let email = emailInput.value.trim();
+      let password = passwordInput.value;
+      let confirmPassword = confirmPasswordInput.value;
+
+      // Terms checkbox
+      const termsCheckbox = document.getElementById("acceptTerms");
+      
+      // Basic Validation Check
+      if (!firstName || !lastName || !mobile || !email || !password || !confirmPassword) {
+        alert("Please fill all fields!");
+        return;
+      }
+      
+      if (password !== confirmPassword) {
+        document.getElementById("confirmPasswordError").textContent = "Passwords do not match.";
+        return;
+      }
+
+      // Check if Terms are accepted
+      if (!termsCheckbox.checked) {
+        alert("Please accept the Terms & Conditions before signing up.");
+        return;
+      }
+      
+      // Show loading spinner
+      document.getElementById("loadingSpinner").style.display = "block";
+      
+      let formData = new FormData();
+      formData.append("firstName", firstName);
+      formData.append("lastName", lastName);
+      formData.append("mobile", mobile);
+      formData.append("email", email);
+      formData.append("password", password);
+      
+      // Send data to server
+      fetch("signup.php", {
+        method: "POST",
+        body: formData,
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Hide loading spinner
+        document.getElementById("loadingSpinner").style.display = "none";
+        
+        // Check for error response (e.g., email or mobile already exists)
+        if (data.error) {
+          if (data.message && data.message.toLowerCase().includes("email")) {
+            document.getElementById("emailError").textContent = data.message;
+          } else if (data.message && data.message.toLowerCase().includes("mobile")) {
+            document.getElementById("mobileError").textContent = data.message;
+          } else {
+            alert(data.message);
+          }
+          return;
+        }
+        
+        // Success: Use Bootstrap modal for feedback if redirect URL is provided
+        if (data.redirect) {
+          let successModal = new bootstrap.Modal(document.getElementById("successModal"));
+          successModal.show();
+          setTimeout(() => {
+            window.location.href = data.redirect;
+          }, 1500);
+        } else {
+          alert(data.message);
+        }
+      })
+      .catch(error => {
+        document.getElementById("loadingSpinner").style.display = "none";
+        console.error("Error:", error);
+      });
+    });
+  });
+
+  // Function to Toggle Password Visibility
+  function togglePassword() {
+    let passwordField = document.getElementById("password");
+    passwordField.type = passwordField.type === "password" ? "text" : "password";
+  }
+
+  // Dummy function for Social Login (to be implemented as needed)
+  function socialLogin(provider) {
+    alert("Social login with " + provider + " is not implemented yet.");
+  }
+  </script>
+</body>
+</html>

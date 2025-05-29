@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ Section</title>
+  <link rel="stylesheet" href="FAQ.css">
+</head>
+<body>
+  <div class="shop-name">
+    <h1>Shreenath Pooja Store</h1>
+    <p>FAQ</p>
+  </div>
+
+  <header>
+    <div class="nav-bar">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About Us</a>
+      <a href="faq.html">FAQ</a>
+      <a href="reviews.html">Reviews</a>
+    </div>
+  </header>
+
+  <div class="faq">
+    <div class="faq-header">
+      <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-container">
+      <!-- First Question -->
+      <div class="faq-item">
+        <button class="faq-question">What is the return policy? <span>+</span></button>
+        <div class="faq-answer">
+          <p>Our return policy allows you to return products within 30 days of purchase with a valid receipt.</p>
+        </div>
+      </div>
+
+      <!-- Second Question -->
+      <div class="faq-item">
+        <button class="faq-question">Do you offer home delivery? <span>+</span></button>
+        <div class="faq-answer">
+          <p>Yes, we offer home delivery services for orders within the city. Delivery charges may apply.</p>
+        </div>
+      </div>
+
+      <!-- Third Question -->
+      <div class="faq-item">
+        <button class="faq-question">How can I track my order? <span>+</span></button>
+        <div class="faq-answer">
+          <p>You can track your order through the tracking link sent to your email or via our website.</p>
+        </div>
+      </div>
+
+      <!-- Fourth Question -->
+      <div class="faq-item">
+        <button class="faq-question">What payment methods do you accept? <span>+</span></button>
+        <div class="faq-answer">
+          <p>We accept payments via Credit/Debit cards, Net banking, and UPI.</p>
+        </div>
+      </div>
+
+      <!-- Fifth Question -->
+      <div class="faq-item">
+        <button class="faq-question">Do you offer gift wrapping services? <span>+</span></button>
+        <div class="faq-answer">
+          <p>Yes, we offer gift wrapping for all products at an additional cost. You can select the option during checkout.</p>
+        </div>
+      </div>
+
+      <!-- Sixth Question -->
+      <div class="faq-item">
+        <button class="faq-question">Can I cancel my order? <span>+</span></button>
+        <div class="faq-answer">
+          <p>You can cancel your order within 24 hours of placing it, provided the order hasn't been shipped yet.</p>
+        </div>
+      </div>
+
+      <!-- Add More Questions Here -->
+      <div class="faq-item">
+        <button class="faq-question">What is the warranty on products? <span>+</span></button>
+        <div class="faq-answer">
+          <p>We offer a 1-year warranty on most products, except for consumables.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Are there any discounts available? <span>+</span></button>
+        <div class="faq-answer">
+          <p>We offer seasonal discounts and promotions. Please subscribe to our newsletter for updates.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="customer-question">
+      <h3>Have a question? Ask us!</h3>
+      <form id="questionForm">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="question" placeholder="Your Question" rows="4" required></textarea>
+        <button type="submit">Submit Question</button>
+      </form>
+      <p id="response"></p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  const faqQuestions = document.querySelectorAll('.faq-question');
+
+  faqQuestions.forEach(function(question) {
+    question.addEventListener('click', function() {
+      const answer = this.nextElementSibling;
+
+      if (answer.style.display === "block") {
+        answer.style.display = "none";
+        this.querySelector("span").textContent = "+";
+      } else {
+        answer.style.display = "block";
+        this.querySelector("span").textContent = "-";
+      }
+    });
+  });
+
+  const form = document.getElementById('questionForm');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const question = document.getElementById('question').value;
+    const response = document.getElementById('response');
+
+    response.textContent = `Thank you, ${name}! We will respond to your question shortly.`;
+    form.reset();
+  });
+});
+
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

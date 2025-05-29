@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shreenath Pooja Store - Agarbatti Page</title>
+  <link rel="stylesheet" href="dhoop.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body data-category="dhoop">
+  <!-- Shop Name Section -->
+  <header>
+    <h1>Shreenath Pooja Store</h1>
+    <p>Your One-Stop Shop for Agarbatti</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About Us</a>
+      <a href="FAQ.html">FAQ</a>
+      <a href="reviews.html">Reviews</a>
+      <div id="cart-icon" class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>  <span id="cart-count">0</span>
+      </div>
+    </nav>
+  </header>
+  <!-- Wishlist Icon (new) -->
+<div id="wishlist-icon" class="wishlist-icon">
+  <i class="fas fa-heart"></i>
+  <span id="wishlist-count">0</span>
+</div>
+
+<!-- Wishlist Container (new) -->
+<div id="wishlist-container" class="wishlist-container">
+  <div class="wishlist-header">
+    <h3>Your Wishlist</h3>
+    <span class="close-wishlist" onclick="toggleWishlist()">×</span>
+  </div>
+  <div class="wishlist-items">
+    <!-- Wishlist items will be inserted here dynamically -->
+  </div>
+</div>
+
+
+  <!-- Mini-Cart Overlay (Feature 7) -->
+  <div id="mini-cart" class="mini-cart"></div>
+  
+  
+  
+  <!-- Brands Section -->
+  <section class="brands">
+    <button class="filter-btn" data-brand="all">All</button>
+    <button class="filter-btn" data-brand="Cycle">Cycle</button>
+    <button class="filter-btn" data-brand="ZBlack">ZBlack</button>
+    <button class="filter-btn" data-brand="Hari Darshan">Hari Darshan</button>
+    <button class="filter-btn" data-brand="Oswal">Oswal</button>
+    <button class="filter-btn" data-brand="Maha Mantra">Maha Mantra</button>
+  </section>
+
+  <!-- ✅ Filter Section -->
+<section class="dhoop-types">
+  <div class="filter-buttons">
+    <button class="type-filter-btn" data-type="">All</button>
+    <button class="type-filter-btn" data-type="Wet Dhoop">Wet Dhoop</button>
+    <button class="type-filter-btn" data-type="Stick Dhoop">Stick Dhoop</button>
+    <button class="type-filter-btn" data-type="Cup Dhoop">Cup Dhoop</button>
+    <button class="type-filter-btn" data-type="Powder Dhoop">Powder Dhoop</button>
+  </div>
+</section>
+
+
+  <!-- Search Bar Section -->
+  <section class="search-bar">
+    <input type="text" id="search-input" placeholder="Search for products..." />
+    <!-- Sorting Dropdown (Feature 2) -->
+    <select id="sort-options">
+      <option value="default">Sort By</option>
+      <option value="price-asc">Price Low to High</option>
+      <option value="price-desc">Price High to Low</option>
+      <option value="name-asc">Name A-Z</option>
+      <option value="name-desc">Name Z-A</option>
+    </select>
+  </section>
+
+  <!-- Agarbatti Collection Section -->
+  <section class="collection">
+    <h2>Dhoop Collection</h2>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products" id="product-list">
+    <!-- Products will be dynamically generated using JavaScript -->
+  </section>
+  <div id="no-results" style="display: none;">
+    No products available.
+  </div>
+  
+  
+
+  <div id="pagination"></div>
+
+  <!-- Additional Links Section -->
+  <section class="additional-links">
+    <h3>Explore More Products</h3>
+    <div class="links">
+      <div class="link-item">
+        <a href="agarbatti.html">
+          <img src="photos/cowdung-based-sandalwood-dhoop-batti-500x500.webp" alt="Agarbatti">
+          <p>Agarbatti</p>
+        </a>
+      </div>
+      <div class="link-item">
+        <a href="pooja-kit.html">
+          <img src="photos/OIP.jpg" alt="Pooja Kit">
+          <p>Pooja Kit</p>
+        </a>
+      </div>
+      <div class="link-item">
+        <a href="pooja-accessories.html">
+          <img src="photos/OIP (1).jpg" alt="Pooja Accessories">
+          <p>Pooja Accessories</p>
+        </a>
+      </div>
+      <div class="link-item">
+        <a href="pooja-cloths.html">
+          <img src="photos/OIP (2).jpg" alt="Pooja Cloths">
+          <p>Pooja Cloths</p>
+        </a>
+      </div>
+      <div class="link-item">
+        <a href="pooja-essentials.html">
+          <img src="photos/OIP (3).jpg" alt="Pooja Essentials">
+          <p>Pooja Essentials</p>
+        </a>
+      </div>
+      <div class="link-item">
+        <a href="attar.html">
+          <img src="photos/OIP (4).jpg" alt="Attar">
+          <p>Attar</p>
+        </a>
+      </div>
+      <div class="link-item">
+        <a href="pooja-books.html">
+          <img src="photos/OIP (5).jpg" alt="Pooja Books">
+          <p>Pooja Books</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>© 2025 Shreenath Pooja Store. All rights reserved.</p>
+  </footer>
+
+  <!-- Quick View Modal (Feature 1) -->
+<div id="quick-view-modal" class="quick-view-modal" style="display: none;">
+  <div class="quick-view-content">
+    <span class="close-modal" onclick="closeQuickView()">&times;</span>
+    <div id="quick-view-details"></div>
+  </div>
+</div>
+
+  <script src="dhoop.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

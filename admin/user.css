@@ -1,0 +1,175 @@
+/* ✅ General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h2 {
+    color: #333;
+}
+
+/* ✅ Search Bar */
+#search {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#search:focus {
+    border-color: #ffbb00;
+}
+
+/* ✅ Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #ffbb00;
+    color: #fff;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* ✅ Action Buttons */
+button {
+    padding: 8px 16px;
+    background-color: #ffbb00;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    outline: none;
+}
+
+button:hover {
+    background-color: #e6a800;
+}
+
+button.delete-btn {
+    background-color: #ff4d4d;
+}
+
+button.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+/* ✅ Pagination Styling */
+#pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#pagination button {
+    padding: 10px 16px;
+    margin: 0 4px;
+    background-color: #ffbb00;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#pagination button:hover {
+    background-color: #e6a800;
+}
+
+#pagination button.active {
+    background-color: #ff8800;
+}
+
+/* ✅ Responsive Styling */
+@media (max-width: 768px) {
+    th, td {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+select,
+button {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #343a40;
+    color: #fff;
+}
+
+td form {
+    display: inline;
+}
+
+td a {
+    text-decoration: none;
+    color: #007bff;
+    margin: 0 5px;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+select {
+    padding: 5px;
+}
+
+button:hover {
+    background-color: #218838;
+}

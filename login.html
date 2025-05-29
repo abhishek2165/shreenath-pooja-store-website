@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login with Email</title>
+  <link rel="stylesheet" href="login.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+  <div class="login-container">
+    <h1 class="animate-fade">Welcome Back!</h1>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="loginValue">
+          <i class="fas fa-envelope"></i> Email
+        </label>
+        <input type="email" id="loginValue" name="loginValue" placeholder="Enter your email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">
+          <i class="fas fa-lock"></i> Password
+        </label>
+        <div style="position: relative;">
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+          <i class="fas fa-eye" id="togglePassword"></i>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="checkbox" id="rememberMe">
+        <label for="rememberMe"> Remember Me</label>
+      </div>
+
+      <button type="submit" class="auth-btn">Login</button>
+    </form>
+
+    <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    <p><a href="forgot-password.html">Forgot Password?</a></p>
+    <a href="admin/login.html" style="display: none;" id="adminLink">Admin Login</a>
+
+  </div>
+
+  <script>
+
+document.getElementById("togglePassword").addEventListener("click", function() {
+  let passwordField = document.getElementById("password");
+  if (passwordField.type === "password") {
+    passwordField.type = "text";
+    this.classList.replace("fa-eye", "fa-eye-slash");
+  } else {
+    passwordField.type = "password";
+    this.classList.replace("fa-eye-slash", "fa-eye");
+  }
+});
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  
+  let email = document.getElementById("loginValue").value.trim();
+  let password = document.getElementById("password").value.trim();
+  let rememberMe = document.getElementById("rememberMe").checked;
+
+  if (!email || !password) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  if (rememberMe) {
+    localStorage.setItem("savedEmail", email);
+  } else {
+    localStorage.removeItem("savedEmail");
+  }
+
+  fetch("login.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, password })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      alert("Login Successful! Redirecting...");
+      window.location.href = data.redirect;
+    } else {
+      alert("Error: " + data.message);
+    }
+  })
+  .catch(error => console.error("Fetch Error:", error));
+});
+
+window.addEventListener("load", function() {
+  let savedEmail = localStorage.getItem("savedEmail");
+  if (savedEmail) {
+    document.getElementById("loginValue").value = savedEmail;
+    document.getElementById("rememberMe").checked = true;
+  }
+});
+if (localStorage.getItem("isAdmin") === "true") {
+  document.getElementById("adminLink").style.display = "block";
+}
+function onLoginSuccess(newUserId) {
+  // For example, newUserId = 'alice' or 'user123'
+  localStorage.setItem('loggedInUser', newUserId);
+  
+  // Force empty cart if you want
+  // localStorage.removeItem(`cart_${newUserId}`);
+  // localStorage.removeItem(`wishlist_${newUserId}`);
+  
+  // Then redirect to agarbatti or dhoop page
+  window.location.href = 'agarbatti.html';
+}
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart - Shreenath Pooja Store</title>
+  <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+  <header>
+    <h1>Shreenath Pooja Store</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="faq.html">FAQ</a>
+      <a href="reviews.html">Reviews</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Your Cart</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items">
+        <!-- Cart items will be dynamically displayed here -->
+      </tbody>
+    </table>
+
+    <div id="subtotal-container">
+      <strong>Subtotal: <span id="subtotal">0.00</span></strong>
+    </div>
+
+    <div id="checkout-container">
+      <button id="checkout-btn">Proceed to Checkout</button>
+      <p><a href="products.html" id="continue-shopping">← Continue Shopping</a></p>
+    </div>
+    
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Shreenath Pooja Store</p>
+  </footer>
+
+  <script src="cart.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

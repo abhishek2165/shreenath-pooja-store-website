@@ -1,0 +1,129 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background-color: #212121;
+    padding: 20px;
+    position: fixed;
+}
+
+.sidebar h2 {
+    color: #ffd700;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 10px;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #333;
+    border-radius: 5px;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 240px;
+    padding: 20px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    max-width: 1000px;
+    border-collapse: collapse;
+    margin: 20px auto;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+td {
+    color: #555;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Dropdown Styling */
+select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fafafa;
+    cursor: pointer;
+}
+
+select:focus {
+    outline: none;
+    border-color: #ffd700;
+}
+
+/* Action Button */
+a {
+    color: #6a0dad;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Support */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    .sidebar {
+        display: none; /* Hide sidebar on small screens */
+    }
+}

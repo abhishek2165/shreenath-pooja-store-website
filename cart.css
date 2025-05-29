@@ -1,0 +1,125 @@
+/* Basic reset for the cart page */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Header and Navigation */
+header {
+  background-color: #FBC02D;
+  color: #212121;
+  padding: 2rem;
+  text-align: center;
+}
+h2{
+  text-align: center;
+}
+
+header nav {
+  margin-top: 10px;
+}
+
+header nav a {
+  color: #212121;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  color: #C62828;
+}
+
+/* Cart Table Styles */
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #F57C00;
+  color: white;
+}
+
+td {
+  font-size: 14px;
+}
+
+.cart-item-image {
+  width: 50px;
+  height: 50px;
+}
+
+.quantity-btn {
+  background-color: #FBC02D;
+  color: #212121;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.remove-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: darkred;
+}
+
+/* Subtotal and Checkout */
+#subtotal-container {
+  text-align: center;
+  margin-top: 20px;
+  
+}
+
+#checkout-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#checkout-btn {
+  background-color: #F57C00;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#checkout-btn:hover {
+  background-color: #C62828;
+}
+
+/* Footer */
+footer {
+  background-color: #FBC02D;
+  color: #212121;
+  padding: 3px;
+  text-align: center;
+  margin-top: 20px;
+}
+#continue-shopping {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 16px;
+  color: #6c5ce7;
+  text-decoration: none;
+}
+
+#continue-shopping:hover {
+  text-decoration: underline;
+}
