@@ -7,5 +7,5 @@ function redirectToSignup() {
 }
 
 function redirectToProductPage() {
-  window.location.href = "login.html"; // Replace with the actual product page link
+  window.location.href = "products.html"; // Replace with the actual product page link
 }
